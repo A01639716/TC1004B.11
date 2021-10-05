@@ -12,6 +12,11 @@ int main(){
         execlp("wc","wc","-l",NULL);
 
     }else{
+        close(1);
+        dup(fd[1]);
+        close(fd[0]);
+        execlp("ls","ls",NULL);
 
     }
+    return 0;
 }
